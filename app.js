@@ -58,3 +58,33 @@ robin.companion.companion.type = "Flea";
 robin.companion.companion.inventory = ["small hat", "sunglasses"];
 
 console.log(robin.companion.companion.roll);
+
+
+// --- Part 3: Class Features ---
+class Adventurer extends Character {
+  constructor (name, role) {
+    super(name);
+    // Adventurers have specialized roles.
+    this.role = role;
+    // Every adventurer starts with a bed and 50 gold coins.
+    this.inventory.push("bedroll", "50 gold coins");
+  }
+  // Adventurers have the ability to scout ahead of them.
+  scout () {
+    console.log(`${this.name} is scouting ahead...`);
+    super.roll();
+  }
+}
+
+
+// Create a Companion class with properties and methods specific to the companions.
+class Companion extends Adventurer {
+  constructor(name, role, type, belongings) {
+    super(name, role);
+    this.type = type;
+    this.belongings = belongings
+  }
+}
+
+let robinCompanion = new Companion("Companion", "Companion", "Flea", ["small hat", "sunglasses"]);
+console.log(robinCompanion);
